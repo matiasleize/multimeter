@@ -1,0 +1,57 @@
+theory:
+  classy:
+    extra_args:
+      N_ncdm: 1
+      N_ur: 0.00441
+likelihood:
+  likelihood.cc_like.CosmicChronometers:
+    python_path: /tmpu/gusad_g/matl_a/cobaya_stuff_2025
+    data_file: /tmpu/gusad_g/matl_a/cobaya_stuff_2025/data/cc_data/cc_data.txt
+    delimiter: null
+params:
+  Omega_m:
+    prior:
+      min: 0.1
+      max: 0.9
+    ref:
+      dist: norm
+      loc: 0.295
+      scale: 0.02
+    proposal: 0.02
+    latex: \Omega_\mathrm{m}
+  H0:
+    prior:
+      min: 50
+      max: 80
+    ref:
+      dist: norm
+      loc: 72
+      scale: 2
+    proposal: 2
+    latex: H_0
+  n_s:
+    value: 0.96
+    latex: n_\mathrm{s}
+  logA:
+    value: 3.05
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  tau_reio:
+    value: 0.06
+    latex: \tau_\mathrm{reio}
+  Omega_b:
+    value: 0.0468
+    latex: \Omega_\mathrm{b} h^2
+  deg_ncdm:
+    value: 3
+    renames: degnu
+  m_ncdm:
+    value: 0.02
+    renames: mnu
+  T_ncdm:
+    value: 0.71611
+    renames: Tnu
+sampler:
+  mcmc:
+    covmat: auto
+output: lcdm_cc

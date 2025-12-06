@@ -1,42 +1,24 @@
 # Multimeter
-Author: Matías Leizerovich. Faculty of Exact and Natural Sciences, Buenos Aires University.
+**Author:** Matías Leizerovich — Faculty of Exact and Natural Sciences, University of Buenos Aires  
 
-For download, see https://github.com/matiasleize/multimeter
+This repository contains the code used for the analysis of the paper **'Generalized tension metrics for multiple cosmological datasets'**, by M. Leizerovich, S. Landau and C. Scóccola, submitted to arXiv (2025). 
+You are welcome to use *Multimeter* in your research, provided that you cite the paper above.
 
-This version of the code was developed to make the analysis of the paper 'Multidimentional tension cosmology', by M. Leizerovich, S. Landau and C. Scóccola, published in Phys. Rev. D 105, 103526 (2022). See https://journals.aps.org/prd/abstract/10.1103/PhysRevD.105.103526. You can use multimeter freely, provided that in your publications you cite the paper mentioned.
-
-## Create a virtual environment
+## Installation
 In order to create a virtual environment with the libraries that are needed to run this module, follow the next steps:
-* Clone the repository: ```git clone https://github.com/matiasleize/multimeter``` 
-* Enter the directory: ```cd fR-MCMC```
-* Create the virtual environment: ```conda env create``` 
-* Activate the virtual environment: ```source activate fR-MCMC```
-
-## Create an output directory:
-Output files can be particarly heavy stuff. For instance, the markov chains are saved in h5 format of several MegaBites. To avoid the unnecessary use of memory in the main repository, output files are stored in an independent directory in the computer's user. For default, this file must be created in the same directory that the Git's repository was cloned:
-
-```
-root_directory/              Root directory
-├── fR-MCMC/                 Root project directory
-├── fR-output/               Output directory
-```
-
-Having said that, the user can change the location of the ouput directory on the configuration file.
-
-## Configuration file:
-The files (.yml) located in the directory fR-MCMC/configs shows all the configuration parameters. 
-
+* Clone the repository:
+```git clone https://github.com/matiasleize/multimeter``` 
+```cd tensiometer```
+* Create and activate the virtual environment (using conda):
+ ```conda env create``` 
+ ```conda activate tensiometer-env```
+ 
 ## Run the code:
-To run the code for a particular configuration file, edit config.py (which is located in the directory fR-MCMC/fr_mcmc) and then run the following command while you are on the root project directory:  
+To reproduce the plots from the paper, run the notebooks under ```notebooks/paper_plots```. Tools
+to analyze different configurations are currently under ```notebooks/tests```. A Python module for systematically analyzing N datasets in a D-dimensional parameter space is under active development.
 
-```
-python3 -m fr_mcmc --task mcmc
-```
-
-If it is desired to run only the analyses part of the code over an existing Markov Chain result, run:
-
-```
-python3 -m fr_mcmc --task analysis --outputfile 'filename'
-```
-
-where 'filename' is the name of the directory where the runs are stored (as an example: 'filename' =  'sample_HS_SN_CC_4params').
+## Citation
+If you use this code, please cite:
+M. Leizerovich, S. Landau, C. Scóccola,
+"Generalized tension metrics for multiple cosmological datasets",
+arXiv:XXXX.XXXXX (2025).

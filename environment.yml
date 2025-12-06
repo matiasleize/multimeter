@@ -1,4 +1,4 @@
-name: fR-MCMC
+name: tensiometer-env
 channels:
   - anaconda
   - conda-forge

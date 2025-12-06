@@ -1,0 +1,151 @@
+theory:
+  classy:
+    path: null
+    speed: 0.2
+    stop_at_error: false
+    extra_args:
+      N_ncdm: 1
+      N_ur: 0.00441
+    ignore_obsolete: false
+    use_renames: false
+    renames:
+      As: A_s
+      ns: n_s
+      nrun: alpha_s
+      nrunrun: beta_s
+      nt: n_t
+      ntrun: alpha_t
+      rdrag: rs_drag
+      omegak: Omega_k
+      omegal: Omega_Lambda
+      w: w0_fld
+      wa: wa_fld
+      omegabh2: omega_b
+      omegab: Omega_b
+      omegach2: omega_cdm
+      omegac: Omega_cdm
+      omegam: Omega_m
+      omegan: Omega_nu
+      tau: tau_reio
+      zrei: z_reio
+      deltazrei: reionization_width
+      helium_redshift: helium_fullreio_redshift
+      helium_delta_redshift: helium_fullreio_width
+      yhe: YHe
+      yheused: YHe
+    version: v3.3.1
+    input_params:
+    - Omega_m
+    - H0
+    - n_s
+    - tau_reio
+    - Omega_b
+    - deg_ncdm
+    - m_ncdm
+    - T_ncdm
+    output_params: []
+likelihood:
+  sn.pantheonplusshoes:
+    path: null
+    dataset_file: PantheonPlus/config.dataset
+    dataset_params: null
+    aliases:
+    - PantheonPlusSHOES
+    use_abs_mag: false
+    speed: 100
+    type: SN
+    stop_at_error: false
+    version: null
+    input_params: []
+    output_params: []
+params:
+  Omega_m:
+    prior:
+      min: 0.1
+      max: 0.9
+    ref:
+      dist: norm
+      loc: 0.295
+      scale: 0.02
+    proposal: 0.02
+    latex: \Omega_\mathrm{m}
+    renames:
+    - omegam
+  H0:
+    prior:
+      min: 60
+      max: 80
+    ref:
+      dist: norm
+      loc: 72
+      scale: 2
+    proposal: 2
+    latex: H_0
+  n_s:
+    value: 0.96
+    latex: n_\mathrm{s}
+    renames:
+    - ns
+  logA:
+    value: 3.05
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  tau_reio:
+    value: 0.06
+    latex: \tau_\mathrm{reio}
+    renames:
+    - tau
+  Omega_b:
+    value: 0.0468
+    latex: \Omega_\mathrm{b} h^2
+    renames:
+    - omegab
+  deg_ncdm:
+    value: 3
+    renames: degnu
+  m_ncdm:
+    value: 0.02
+    renames: mnu
+  T_ncdm:
+    value: 0.71611
+    renames: Tnu
+  chi2__SN:
+    latex: \chi^2_\mathrm{SN}
+    derived: true
+sampler:
+  mcmc:
+    burn_in: 0
+    max_tries: 40d
+    covmat: auto
+    covmat_params: null
+    proposal_scale: 2.4
+    output_every: 60s
+    learn_every: 40d
+    temperature: 1
+    learn_proposal: true
+    learn_proposal_Rminus1_max: 2.0
+    learn_proposal_Rminus1_max_early: 30.0
+    learn_proposal_Rminus1_min: 0.0
+    max_samples: .inf
+    Rminus1_stop: 0.01
+    Rminus1_cl_stop: 0.2
+    Rminus1_cl_level: 0.95
+    Rminus1_single_split: 4
+    measure_speeds: true
+    oversample_power: 0.4
+    oversample_thin: true
+    drag: false
+    blocking:
+    - - 1
+      - - Omega_m
+        - H0
+    callback_function: null
+    callback_every: null
+    seed: null
+    check_every: null
+    oversample: null
+    drag_limits: null
+    fallback_covmat_scale: 4
+    version: 3.5.7
+output: lcdm_pps
+version: 3.5.7
