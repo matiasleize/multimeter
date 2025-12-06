@@ -9,4 +9,3 @@ dependencies:
   - numpy
   - matplotlib
   - gitpython
-prefix: /home/matias/miniconda3/envs/multimeter-env
