@@ -8,10 +8,10 @@ You are welcome to use *Multimeter* in your research, provided that you cite the
 In order to create a virtual environment with the libraries that are needed to run this module, follow the next steps:
 * Clone the repository:
 ```git clone https://github.com/matiasleize/multimeter``` 
-```cd tensiometer```
+```cd multimeter```
 * Create and activate the virtual environment (using conda):
  ```conda env create``` 
- ```conda activate tensiometer-env```
+ ```conda activate multimeter-env```
  
 ## Run the code:
 To reproduce the plots from the paper, run the notebooks under ```notebooks/paper_plots```. Tools
