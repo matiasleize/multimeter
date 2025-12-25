@@ -1,24 +1,73 @@
 # Multimeter
-**Author:** Matías Leizerovich — Faculty of Exact and Natural Sciences, University of Buenos Aires  
 
-This repository contains the code used for the analysis of the paper **'Generalized tension metrics for multiple cosmological datasets'**, by M. Leizerovich, S. Landau and C. Scóccola, submitted to arXiv (2025). 
-You are welcome to use *Multimeter* in your research, provided that you cite the paper above.
+**Author:** Matías Leizerovich  
+Faculty of Exact and Natural Sciences, University of Buenos Aires
+
+**Multimeter** is a Python package for quantifying and interpreting statistical tensions among multiple cosmological datasets.  
+It implements the methodology introduced in the paper:
+
+> **“Generalized tension metrics for multiple cosmological datasets”**  
+> M. Leizerovich, S. Landau, C. Scóccola (2025)
+
+The package provides a geometric framework to assess consistency across *N* datasets in a shared *D*-dimensional parameter space, going beyond standard pairwise tension measures.
+
+---
 
 ## Installation
-In order to create a virtual environment with the libraries that are needed to run this module, follow the next steps:
-* Clone the repository:
-```git clone https://github.com/matiasleize/multimeter``` 
-```cd multimeter```
-* Create and activate the virtual environment (using conda):
- ```conda env create``` 
- ```conda activate multimeter-env```
- 
-## Run the code:
-To reproduce the plots from the paper, run the notebooks under ```notebooks/paper_plots```. Tools
-to analyze different configurations are currently under ```notebooks/tests```. A Python module for systematically analyzing N datasets in a D-dimensional parameter space is under active development.
+
+### Install with `pip` (recommended)
+
+```bash
+pip install multimeter-tension
+```
+## Documentation
+
+Full documentation (API reference, usage examples, and theory overview) is available at:
+
+https://multimeter-tension.readthedocs.io/
+*(link will be active once published)*
+
+---
+
+## Usage
+
+After installation, you can import the package as:
+
+```python
+import multimeter
+```
+
+The core tools allow for the systematic analysis of tensions among multiple datasets in a shared parameter space.  
+See the documentation for worked examples and API details.
+
+---
+
+## Reproducing the paper results
+
+To reproduce the figures and analyses presented in the paper:
+
+- All notebooks used in the publication are available under:
+
+
+```
+notebooks/paper_plots/
+```
+
+
+- Additional exploratory and testing notebooks can be found under:
+
+
+```
+notebooks/tests/
+```
+
 
 ## Citation
-If you use this code, please cite:
+
+If you use **Multimeter** in your research, please cite:
+
 M. Leizerovich, S. Landau, C. Scóccola,
 "Generalized tension metrics for multiple cosmological datasets",
 arXiv:2512.06086 (2025).
+
+A BibTeX entry is provided in CITATION.bib.
