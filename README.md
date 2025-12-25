@@ -24,8 +24,7 @@ pip install multimeter-tension
 
 Full documentation (API reference, usage examples, and theory overview) is available at:
 
-https://multimeter-tension.readthedocs.io/
-*(link will be active once published)*
+https://pypi.org/project/multimeter-tension/
 
 ---
 
