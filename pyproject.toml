@@ -28,3 +28,12 @@ dev = ["build", "twine", "pytest>=7", "ruff", "black"]
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["multimeter*"]
+
+[project.urls]
+Homepage = "https://github.com/matiasleize/multimeter"
+Repository = "https://github.com/matiasleize/multimeter"
+Issues = "https://github.com/matiasleize/multimeter/issues"
+Documentation = "https://multimeter-tension.readthedocs.io/"
+
+[project]
+keywords = ["cosmology", "statistics", "tension", "bayesian", "inference"]
