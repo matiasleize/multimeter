@@ -21,4 +21,4 @@ to analyze different configurations are currently under ```notebooks/tests```. A
 If you use this code, please cite:
 M. Leizerovich, S. Landau, C. Scóccola,
 "Generalized tension metrics for multiple cosmological datasets",
-arXiv:XXXX.XXXXX (2025).
+arXiv:2512.06086 (2025).
