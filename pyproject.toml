@@ -15,6 +15,7 @@ dependencies = [
   "scipy>=1.10",
   "matplotlib>=3.7",
 ]
+keywords = ["cosmology", "statistics", "tension", "bayesian", "inference"]
 
 [project.optional-dependencies]
 notebooks = ["jupyter", "ipykernel"]
@@ -35,5 +36,3 @@ Repository = "https://github.com/matiasleize/multimeter"
 Issues = "https://github.com/matiasleize/multimeter/issues"
 Documentation = "https://multimeter-tension.readthedocs.io/"
 
-[project]
-keywords = ["cosmology", "statistics", "tension", "bayesian", "inference"]
