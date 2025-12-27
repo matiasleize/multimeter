@@ -131,8 +131,9 @@ def L_to_PTE(L: float, Nd: int, d: int = 2, sigma2: float = 0.5) -> float:
 
     for i, PTE in enumerate(PTE_arr):
         L_arr[i] = PTE_to_L(PTE, Nd=Nd, d=d, sigma2=sigma2)
-    
-    return interp1d(L_arr, PTE_arr, bounds_error=False, fill_value="extrapolate")(L)
+
+    p = interp1d(L_arr, PTE_arr, bounds_error=False, fill_value="extrapolate")(L)
+    return float(np.clip(p, 0.0, 1.0))
 
 
 
