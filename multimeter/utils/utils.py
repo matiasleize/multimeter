@@ -1,3 +1,5 @@
+# utils.py
+
 import numpy as np
 from scipy.special import erfcinv
 from scipy.stats import chi2, multivariate_normal, gamma
@@ -10,61 +12,64 @@ from math import sqrt
 
 def n_eff_to_L_iso(n: float, d: int = 2, sigma2: float = 0.5, gauss_scale: str = '1sigma') -> float:
     """
-    Distancia euclídea L entre las medias de dos Gaussianas D-dimensionales
-    idénticas e isotrópicas (Sigma = sigma2 * I), tal que sus contornos 
-    que en 1D corresponden a ±nσ se 'toquen'.
+    Euclidean distance L between the means of two identical, isotropic
+    D-dimensional Gaussian distributions (Σ = sigma² · I), such that
+    their contours corresponding to ±nσ in 1D just touch each other.
 
-    Parámetros
+    Parameters
     ----------
     d : int
-        Dimensión (D).
+        Dimensionality (D).
     n : float
-        'Número de sigmas' 1D (es decir, p = erf(n / sqrt(2))).
-    sigma2 : float, opcional
-        Varianza isotrópica por eje (default 0.5).
+        One-dimensional "number of sigmas" (i.e. p = erf(n / sqrt(2))).
+    sigma2 : float, optional
+        Isotropic variance per dimension (default: 0.5).
+    gauss_scale : str, optional
+        Definition of the Gaussian scale ('1sigma' or '2sigma').
 
-    Devuelve
-    --------
+    Returns
+    -------
     L : float
-        Distancia euclídea entre medias.
+        Euclidean distance between the two mean vectors.
     """
 
-
     if gauss_scale == '1sigma':
-        # Probabilidad 1D asociada a ±nσ
-        p = erf(n / sqrt(2.0)) #is the same, less general
-        #p = chi2.cdf(n**2, df=1)  # Cumulative distribution function for chi2Q
+        # One-dimensional probability associated with ±nσ
+        p = erf(n / sqrt(2.0))  # equivalent expression, less general
+        # p = chi2.cdf(n**2, df=1)  # Cumulative distribution function of the chi-square
     elif gauss_scale == '2sigma':
-        p = chi2.cdf(n**2, df=2)  # Cumulative distribution function for chi2
+        p = chi2.cdf(n**2, df=2)  # Cumulative distribution function of the chi-square
 
-    # Cuantil chi-cuadrado con d grados de libertad
-    m2 = chi2.ppf(p, df=d)              # m^2 = χ²_{d,p}
+    # Chi-square quantile with d degrees of freedom
+    m2 = chi2.ppf(p, df=d)              # m² = χ²_{d,p}
     m  = sqrt(m2)
-    # En isotrópico: L = 2 * σ * m, con σ = sqrt(sigma2)
-    return 2.0 * sqrt(sigma2) * m
 
+    # In the isotropic case: L = 2 * σ * m, with σ = sqrt(sigma2)
+    return 2.0 * sqrt(sigma2) * m
 
 
 
 def L_iso_to_n_eff(L: float, d: int = 2, sigma2: float = 0.5, gauss_scale: str = '1sigma') -> float:
     """
-    Distancia euclídea L entre las medias de dos Gaussianas D-dimensionales
-    idénticas e isotrópicas (Sigma = sigma2 * I), tal que sus contornos 
-    que en 1D corresponden a ±nσ se 'toquen'.
+    Effective number of sigmas n corresponding to a given Euclidean
+    separation L between the means of two identical, isotropic
+    D-dimensional Gaussian distributions (Σ = sigma² · I).
 
-    Parámetros
+    Parameters
     ----------
-    d : int
-        Dimensión (D).
-    n : float
-        'Número de sigmas' 1D (es decir, p = erf(n / sqrt(2))).
-    sigma2 : float, opcional
-        Varianza isotrópica por eje (default 0.5).
-
-    Devuelve
-    --------
     L : float
-        Distancia euclídea entre medias.
+        Euclidean distance between the two means.
+    d : int
+        Dimensionality (D).
+    sigma2 : float, optional
+        Isotropic variance per dimension (default: 0.5).
+    gauss_scale : str, optional
+        Definition of the Gaussian scale ('1sigma' or '2sigma').
+
+    Returns
+    -------
+    n : float
+        Effective one-dimensional significance corresponding to L.
     """
     factor = np.linspace(0, 8, 100)
     n_eff_to_L_iso_values = np.array([n_eff_to_L_iso(d=d, n=f, sigma2=sigma2, gauss_scale=gauss_scale) for f in factor])
