@@ -1,3 +1,5 @@
+# n_particles.py
+
 import numpy as np
 from scipy.stats import norm, kstest, probplot, anderson
 from scipy.special import erfcinv
@@ -80,3 +82,14 @@ def W_ij(diff_mean_i, diff_mean_j, cov_i, cov_j,n_samples):
         W[i] = np.dot(X[:, i], np.dot(A, Y[:, i]))  # Shape: (n_samples,)
 
     return W
+
+
+def construct_C(vectors):
+    L = len(vectors)
+
+    K_xx = np.sum((vectors[:, 0]) ** 2)
+    K_yy = np.sum((vectors[:, 1]) ** 2)
+    K_xy = np.sum((vectors[:, 0]) * (vectors[:, 1]))
+    K_yx = K_xy
+    C = np.array([[K_xx, K_xy], [K_yx,K_yy]])/L
+    return C
