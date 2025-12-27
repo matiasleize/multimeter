@@ -57,7 +57,7 @@ notebooks/paper_plots/
 
 
 ```
-notebooks/tests/
+notebooks/
 ```
 
 
